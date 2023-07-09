@@ -4,8 +4,8 @@ CXX = g++
 objects = main.o QuadraticEquation.o Trigonometry.o Shape.o Solid.o
 Quadratic = QuadraticEquation.cpp 
 Trigonometry = Trigonometry.cpp 
-Shape = Shape.cpp Shape.h
-Solid = Solid.cpp Solid.h
+Shape = Shape.cpp ./headers/Shape.h
+Solid = Solid.cpp  ./headers/Solid.h
 
 all: main
 
