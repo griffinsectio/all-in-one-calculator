@@ -42,36 +42,20 @@ void quadraticEquation()
 	   }
 	   else 
 	   {
-           std::complex<double> complexSolution1;
-           std::complex<double> complexSolution2;
-           std::complex<double> divider = 2*a;
-           std::complex<double> sqrtResult = std::sqrt(std::complex<double>(discriminant));
+            std::complex<double> complexSolution1;
+            std::complex<double> complexSolution2;
+            std::complex<double> divider = 2*a;
+            std::complex<double> sqrtResult = std::sqrt(std::complex<double>(discriminant));
+
+            complexSolution1 = (-b + sqrtResult)/divider;
+            complexSolution2 = (-b - sqrtResult)/divider;
+
+            double realPart = std::real(complexSolution1);
+            double imaginaryPart = std::imag(complexSolution1);
     
-           complexSolution1 = (-b + sqrtResult)/divider;
-           complexSolution2 = (-b - sqrtResult)/divider;
-    
-           double realPart1 = std::real(complexSolution1);
-           double imaginaryPart1 = std::imag(complexSolution1);
-    
-           double realPart2 = std::real(complexSolution2);
-           double imaginaryPart2 = std::imag(complexSolution2);
-    
-           std::cout << "No real solution! \n";
-           if (imaginaryPart1 > 0)
-           {
-                std::cout << "Solution #1: " << realPart1 << " + " << imaginaryPart1 << 'i' << '\n';
-           }
-           else {
-                 std::cout << "Solution #1: " << realPart1 << " - " << -imaginaryPart1 << 'i' << '\n';
-           }
-    
-           if (imaginaryPart2 > 0)
-           {
-                std::cout << "Solution #2: " << realPart1 << " + " << imaginaryPart2 << 'i' << '\n';
-           }
-           else {
-                 std::cout << "Solution #2: " << realPart1 << " - " << -imaginaryPart2 << 'i' << '\n';
-           }
+            std::cout << "No real solution! \n";
+            std::cout << "Solution #1: " << realPart << " + " << imaginaryPart << 'i' << '\n';
+            std::cout << "Solution #2: " << realPart << " - " << imaginaryPart << 'i' << '\n';
 	   }
     }while (userConfirmation());
 
