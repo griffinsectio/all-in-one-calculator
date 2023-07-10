@@ -41,6 +41,10 @@ class Cube : public Solid
         {
             setVolume(length*length*length);
         }
+        void getLength()
+        {
+            std::cout << "The length of the " << this->name << " sides is: " << this->length << '\n';
+        }
         Cube(double length)
         {
             this->name = "cube";
@@ -62,6 +66,14 @@ class Cuboid : public Cube
         void calculateVolume()
         {
             setVolume(length*width*height);
+        }
+        void getWidth()
+        {
+            std::cout << "The width of the " << this->name << " sides is: " << this->width << '\n';
+        }
+        void getHeight()
+        {
+            std::cout << "The height of the " << this->name << " sides is: " << this->height << '\n';
         }
         Cuboid(double length, double width, double height) : Cube(length)
         {
@@ -105,6 +117,10 @@ class Sphere : public Solid
         {
             setVolume((4*pi*std::pow(radius, 3))/3);
         }
+        void getRadius()
+        {
+            std::cout << "The radius of the " << this->name << " is: " << this->radius << '\n';
+        }
         Sphere(double radius)
         {
             this->name = "sphere";
@@ -125,6 +141,10 @@ class Cone : public Sphere
         void calculateVolume()
         {
             setVolume((pi*std::pow(radius, 2)*height)/3);
+        }
+        void getHeight()
+        {
+            std::cout << "The height of the " << this->name << " is: " << this->height << '\n';
         }
 	    Cone(double radius, double height) : Sphere(radius)
 	    {
@@ -147,9 +167,13 @@ class Cylinder : public Sphere
         {
             setVolume(pi*std::pow(radius, 2)*height);
         }
+        void getHeight()
+        {
+            std::cout << "The height of the " << this->name << " is: " << this->height << '\n';
+        }
 	   Cylinder(double radius, double height) : Sphere(radius)
 	   {
-            this->name = "cylinder";
+           this->name = "cylinder";
 	       this->height = height;
 	   }
 };

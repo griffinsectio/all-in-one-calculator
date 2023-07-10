@@ -17,12 +17,17 @@ void shapeCalculator()
         std::cout << "5. Triangle\n";
         std::cout << "6. Rhombus\n";
         std::cout << "7. Kite \n";
-        std::cout << "Your choice: ";
+        std::cout << "Your choice (0 to back to main menu): ";
         std::cin >> choice;
         std::cout << '\n';
     
         switch(choice)
         {
+            case 0:
+            {
+                system("clear");
+                return;
+            }
             case 1:
             {
                 double length;
@@ -34,6 +39,7 @@ void shapeCalculator()
                 sqre.getLength();
                 sqre.calculateArea();
                 sqre.getArea();
+                std::cout << '\n';
         
                 break;
             }
@@ -52,6 +58,7 @@ void shapeCalculator()
                 rect.getWidth();
                 rect.calculateArea();
                 rect.getArea();
+                std::cout << '\n';
     
                 break;
             }
@@ -70,6 +77,7 @@ void shapeCalculator()
                 par.getHeight();
                 par.calculateArea();
                 par.getArea();
+                std::cout << '\n';
     
                 break;
             }
@@ -92,6 +100,7 @@ void shapeCalculator()
                 trap.getHeight();
                 trap.calculateArea();
                 trap.getArea();
+                std::cout << '\n';
     
                 break;
             }
@@ -110,6 +119,7 @@ void shapeCalculator()
                 tri.getHeight();
                 tri.calculateArea();
                 tri.getArea();
+                std::cout << '\n';
     
                 break;
             }
@@ -128,6 +138,7 @@ void shapeCalculator()
                 rhom.getDiagonal2();
                 rhom.calculateArea();
                 rhom.getArea();
+                std::cout << '\n';
     
                 break;
             }
@@ -146,6 +157,7 @@ void shapeCalculator()
                 kite.getDiagonal2();
                 kite.calculateArea();
                 kite.getArea();
+                std::cout << '\n';
     
                 break;
             }

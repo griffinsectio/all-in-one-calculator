@@ -7,10 +7,12 @@ void cubicEquation();
 void trigonometry();
 void shapeCalculator();
 void solidCalculator();
+bool userConfirmation();
 
 int main()
 {
     bool exit = false;
+    system("clear");
     do
     {
         int featureChoice;

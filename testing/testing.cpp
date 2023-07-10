@@ -2,11 +2,10 @@
 #include <cmath>
 #include "../headers/Solid.h"
 
-bool userConfirmation();
-
-void solidCalculator()
+    
+int main()
 {
-    do {
+    do { 
         int choice;
         std::cout << "What shape you want to calculate? \n";
         std::cout << "1. Cube\n";
@@ -15,32 +14,26 @@ void solidCalculator()
         std::cout << "4. Sphere\n";
         std::cout << "5. Cone\n";
         std::cout << "6. Cylinder\n";
-        std::cout << "Your choice (0 to back to main menu): ";
+        std::cout << "Your choice: ";
         std::cin >> choice;
         std::cout << '\n';
-    
+
         switch(choice)
         {
-            case 0:
-            {
-                system("clear");
-                return;
-            }
             case 1:
             {
                 double length;
                 std::cout << "Give the length of the cube side: ";
                 std::cin >> length;
                 std::cout << "\n\n";
-    
+
                 Cube cube(length);
                 cube.getLength();
                 cube.calculateSurfaceArea();
                 cube.calculateVolume();
                 cube.getSurfaceArea();
                 cube.getVolume();
-                std::cout << '\n';
- 
+
                 break;
             }
             case 2:
@@ -51,11 +44,10 @@ void solidCalculator()
                 std::cout << '\n';
                 std::cout << "Give the width of the cuboid: ";
                 std::cin >> width;
-                std::cout << '\n';
                 std::cout << "Give the height of the cuboid: ";
                 std::cin >> height;
                 std::cout << "\n\n";
-    
+
                 Cuboid cuboid(length, width, height);
                 cuboid.getLength();
                 cuboid.getWidth();
@@ -64,8 +56,7 @@ void solidCalculator()
                 cuboid.calculateVolume();
                 cuboid.getSurfaceArea();
                 cuboid.getVolume();
-                std::cout << '\n';
-    
+
                 break;
             }
             case 3:
@@ -76,11 +67,10 @@ void solidCalculator()
                 std::cout << '\n';
                 std::cout << "Give the width of the pyramid: ";
                 std::cin >> width;
-                std::cout << '\n';
                 std::cout << "Give the height of the pyramid: ";
                 std::cin >> height;
                 std::cout << "\n\n";
-    
+
                 Pyramid pyramid(length, width, height);
                 pyramid.getLength();
                 pyramid.getWidth();
@@ -89,8 +79,7 @@ void solidCalculator()
                 pyramid.calculateVolume();
                 pyramid.getSurfaceArea();
                 pyramid.getVolume();
-                std::cout << '\n';
-    
+
                 break;
             }
             case 4:
@@ -99,15 +88,14 @@ void solidCalculator()
                 std::cout << "Give the radius of the sphere: ";
                 std::cin >> radius;
                 std::cout << "\n\n";
-    
+
                 Sphere sphere(radius);
                 sphere.getRadius();
                 sphere.calculateSurfaceArea();
                 sphere.calculateVolume();
                 sphere.getSurfaceArea();
                 sphere.getVolume();
-                std::cout << '\n';
-    
+
                 break;
             }
             case 5:
@@ -119,7 +107,7 @@ void solidCalculator()
                 std::cout << "Give the height of the cone: ";
                 std::cin >> height;
                 std::cout << "\n\n";
-    
+
                 Cone cone(radius, height);
                 cone.getRadius();
                 cone.getHeight();
@@ -127,8 +115,7 @@ void solidCalculator()
                 cone.calculateVolume();
                 cone.getSurfaceArea();
                 cone.getVolume();
-                std::cout << '\n';
-    
+
                 break;
             }
             case 6:
@@ -140,7 +127,7 @@ void solidCalculator()
                 std::cout << "Give the height of the cylinder: ";
                 std::cin >> height;
                 std::cout << "\n\n";
-    
+
                 Cylinder cylinder(radius, height);
                 cylinder.getRadius();
                 cylinder.getHeight();
@@ -148,14 +135,14 @@ void solidCalculator()
                 cylinder.calculateVolume();
                 cylinder.getSurfaceArea();
                 cylinder.getVolume();
-                std::cout << '\n';
-    
+
                 break;
             }
             default:
                 std::cout << "Unknown choice!\n";
                 std::cout << "Aborting...!\n";
                 break;
-        }
-    }while (userConfirmation());
+    }
+    }while (true);
+    return 0;
 }
