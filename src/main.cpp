@@ -7,6 +7,7 @@ void cubicEquation();
 void trigonometry();
 void shapeCalculator();
 void solidCalculator();
+void series();
 bool userConfirmation();
 
 int main()
@@ -22,6 +23,7 @@ int main()
         std::cout << "3. Quadratic equation solver.\n";
         std::cout << "4. Cubic equation solver (coming soon!).\n";
         std::cout << "5. Trigonometry.\n";
+        std::cout << "6. Series and Sum.\n";
         std::cout << "Your choice (0 to exit): ";
         std::cin >> featureChoice;
         std::cout << '\n';
@@ -46,6 +48,10 @@ int main()
                 break;
             case 5:
                 trigonometry();
+                system("clear");
+                break;
+            case 6:
+                series();
                 system("clear");
                 break;
             case 0:
