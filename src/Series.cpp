@@ -1,11 +1,14 @@
 #include <iostream>
 #include <cmath>
+#include <iterator>
 #include <limits>
 #include <string>
 #include "../headers/exprtk.hpp"
 
 template <typename T>
 void getNthValue(std::string pattern, int indexOfValue);
+template <typename T>
+void getSum(std::string pattern, int startIndex, int endIndex);
 bool userConfirmation();
 
 void series()
@@ -17,6 +20,7 @@ void series()
         std::cin >> pattern;
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<int>::max(), '\n');
+        std::cout << '\n';
 
         std::cout << "What do you wanted to do? \n";
         std::cout << "1. Find the n-th value.\n";
@@ -44,7 +48,14 @@ void series()
                 }
             case 2:
                 {
-                    std::cout << "Soon!\n";
+                    int startIndex, endIndex;
+                    std::cout << "Give the start index: ";
+                    std::cin >> startIndex;
+
+                    std::cout << "Give the end index: ";
+                    std::cin >> endIndex;
+
+                    getSum<double>(pattern, startIndex, endIndex);
                     break;
                 }
         }
@@ -82,3 +93,39 @@ void getNthValue(std::string pattern, int indexOfValue)
     }
 }
 
+template <typename T>
+void getSum(std::string pattern, int startIndex, int endIndex)
+{
+    typedef exprtk::symbol_table<T> symbol_table_t;
+    typedef exprtk::expression<T>   expression_t;
+    typedef exprtk::parser<T>       parser_t;
+
+    T n;
+
+    symbol_table_t symbol_table;
+    symbol_table.add_variable("n",n);
+    symbol_table.add_constants();
+
+    expression_t expression;
+    expression.register_symbol_table(symbol_table);
+
+    parser_t parser;
+    parser.compile(pattern, expression);
+
+    if (!parser.compile(pattern,expression))
+    {
+        std::cout << "Compilation error...\n";
+        return;
+    }
+    else {
+        double sum = 0;
+
+        for (n = T(startIndex); n <= T(endIndex); n++)
+        {
+            T y = expression.value();
+            sum += y;
+        }
+        std::cout << "The sum of the pattern from " << startIndex
+            << "-th value until the " << endIndex << "-th value is: " << sum << "\n\n";
+    }
+}

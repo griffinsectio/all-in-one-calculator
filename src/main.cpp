@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <cmath>
 #include <unistd.h>
@@ -27,6 +28,7 @@ int main()
         std::cout << "Your choice (0 to exit): ";
         std::cin >> featureChoice;
         std::cout << '\n';
+        system("clear");
 
         switch(featureChoice)
         {
