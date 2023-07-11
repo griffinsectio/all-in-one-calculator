@@ -2,11 +2,12 @@
 
 CXX = g++
 mainSource = ./src/main.cpp
-objects = main.o QuadraticEquation.o Trigonometry.o Shape.o Solid.o
+objects = main.o QuadraticEquation.o Trigonometry.o Shape.o Solid.o Series.o
 Quadratic = ./src/QuadraticEquation.cpp 
 Trigonometry = ./src/Trigonometry.cpp 
 Shape = ./src/Shape.cpp ./headers/Shape.h
 Solid = ./src/Solid.cpp  ./headers/Solid.h
+Series = ./src/Series.cpp ./headers/exprtk.hpp
 
 all: main
 
@@ -27,6 +28,9 @@ Shape.o: $(Shape)
 
 Solid.o: $(Solid)
 	$(CXX) -c ./src/Solid.cpp
+
+Series.o: $(Series)
+	$(CXX) -c ./src/Series.cpp
 
 clean:
 	rm *.o main
