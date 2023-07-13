@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <string>
 #include <unistd.h>
 
 void quadraticEquation();
@@ -9,6 +10,7 @@ void trigonometry();
 void shapeCalculator();
 void solidCalculator();
 void series();
+void derivation();
 bool userConfirmation();
 
 int main()
@@ -25,6 +27,7 @@ int main()
         std::cout << "4. Cubic equation solver (coming soon!).\n";
         std::cout << "5. Trigonometry.\n";
         std::cout << "6. Series and Sum.\n";
+        std::cout << "7. Derivative.\n";
         std::cout << "Your choice (0 to exit): ";
         std::cin >> featureChoice;
         std::cout << '\n';
@@ -54,6 +57,12 @@ int main()
                 break;
             case 6:
                 series();
+                system("clear");
+                break;
+            case 7:
+                std::cout << "Unfortunately there are many limitation for this feature right now.\n";
+                std::cout << "It only take an integer input.\n\n";
+                derivation();
                 system("clear");
                 break;
             case 0:
@@ -132,23 +141,35 @@ void cubicEquation()
 
 bool userConfirmation()
 {
-    char confirmation = 'y';
-    std::cout << "Go back to main menu? (y/n) ";
-    std::cin >> confirmation;
+    std::string confirmation = "y";
+//    do {
+//        if (std::cin.fail()) {
+//            std::cin.clear();
+//            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//        }
+//        std::cout << "Go back to main menu? (y/n) ";
+//        std::getline(std::cin, confirmation);
+//    } while (std::cin.fail());
 
-    if (confirmation == 'y')
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cout << "Go back to main menu? (y/n) ";
+    std::getline(std::cin, confirmation);
+    std::cout << confirmation << '\n';
+
+    if (confirmation == "y")
     {
         system("clear");
         return false;    
     }
-    else if (confirmation == 'n')
+    else if (confirmation == "n")
     {
         system("clear");
         return true;
     }
     else 
     {
-        std::cout << "Unknown option, returning to main menu...";
+        std::cout << "Unknown option, returning to main menu...\n";
         sleep(3);
         system("clear");
         return false;
