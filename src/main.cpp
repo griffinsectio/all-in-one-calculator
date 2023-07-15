@@ -11,6 +11,7 @@ void shapeCalculator();
 void solidCalculator();
 void series();
 void derivation();
+void integrate();
 bool userConfirmation();
 
 int main()
@@ -28,6 +29,7 @@ int main()
         std::cout << "5. Trigonometry.\n";
         std::cout << "6. Series and Sum.\n";
         std::cout << "7. Derivative.\n";
+        std::cout << "8. Integaration.\n";
         std::cout << "Your choice (0 to exit): ";
         std::cin >> featureChoice;
         std::cout << '\n';
@@ -63,6 +65,10 @@ int main()
                 std::cout << "Unfortunately there are many limitation for this feature right now.\n";
                 std::cout << "It only take an integer input.\n\n";
                 derivation();
+                system("clear");
+                break;
+            case 8:
+                integrate();
                 system("clear");
                 break;
             case 0:
