@@ -38,7 +38,9 @@ void shapeCalculator()
                 Square sqre(length);
                 sqre.getLength();
                 sqre.calculateArea();
+                sqre.calculatePerimeter();
                 sqre.getArea();
+                sqre.getPerimeter();
                 std::cout << '\n';
         
                 break;
@@ -57,7 +59,9 @@ void shapeCalculator()
                 rect.getLength();
                 rect.getWidth();
                 rect.calculateArea();
+                rect.calculatePerimeter();
                 rect.getArea();
+                rect.getPerimeter();
                 std::cout << '\n';
     
                 break;
@@ -76,7 +80,9 @@ void shapeCalculator()
                 par.getLength();
                 par.getHeight();
                 par.calculateArea();
+                par.calculatePerimeter();
                 par.getArea();
+                par.getPerimeter();
                 std::cout << '\n';
     
                 break;
@@ -99,7 +105,9 @@ void shapeCalculator()
                 trap.getWidth();
                 trap.getHeight();
                 trap.calculateArea();
+                trap.calculatePerimeter();
                 trap.getArea();
+                trap.getPerimeter();
                 std::cout << '\n';
     
                 break;
@@ -118,7 +126,9 @@ void shapeCalculator()
                 tri.getBase();
                 tri.getHeight();
                 tri.calculateArea();
+                tri.calculatePerimeter();
                 tri.getArea();
+                tri.getPerimeter();
                 std::cout << '\n';
     
                 break;
@@ -137,7 +147,9 @@ void shapeCalculator()
                 rhom.getDiagonal1();
                 rhom.getDiagonal2();
                 rhom.calculateArea();
+                rhom.calculatePerimeter();
                 rhom.getArea();
+                rhom.getPerimeter();
                 std::cout << '\n';
     
                 break;
@@ -156,7 +168,9 @@ void shapeCalculator()
                 kite.getDiagonal1();
                 kite.getDiagonal2();
                 kite.calculateArea();
+                kite.calculatePerimeter();
                 kite.getArea();
+                kite.getPerimeter();
                 std::cout << '\n';
     
                 break;
