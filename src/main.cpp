@@ -175,6 +175,7 @@ bool userConfirmation()
     }
     else 
     {
+        std::cout << '\n';
         std::cout << "Unknown option, returning to main menu...\n";
         sleep(3);
         system("clear");

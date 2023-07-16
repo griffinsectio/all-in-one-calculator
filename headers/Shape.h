@@ -15,7 +15,7 @@ class Shape
         }
         void getPerimeter()
         {
-            std::cout << "Perimter of the " << this->name << " is: " << this->perimeter << '\n';
+            std::cout << "Perimeter of the " << this->name << " is: " << this->perimeter << '\n';
         }
 };
 
@@ -109,10 +109,11 @@ class Trapezoid : public Rectangle
         {
             double a = 1;
             double b = 1;
-            std::cout << "     ----------" << '\n';
-            std::cout << "    /          \\ '\n'";
-            std::cout << "a /             \\ b '\n'";
-            std::cout << "/----------------\\ '\n'";
+            std::cout << "     ----------     " << '\n';
+            std::cout << "    /          \\   " << '\n';
+            std::cout << " a /            \\ b" << '\n';
+            std::cout << "  /              \\ " << '\n';
+            std::cout << " ------------------" << '\n';
             std::cout << '\n';
 
             std::cout << "Give the length of the side a: ";
