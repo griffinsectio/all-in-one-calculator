@@ -41,7 +41,7 @@ void calculateIntegral(std::string *expressionToIntegrate, double *startEndpoint
     typedef exprtk::expression<T>   expression_t;
     typedef exprtk::parser<T>       parser_t;
     double length = *endPoint - *startEndpoint;
-    double amountOfPartitions = length * 10000;
+    double amountOfPartitions = length * 1000000;
     double rectWidth = length / amountOfPartitions;
 
     T x;
