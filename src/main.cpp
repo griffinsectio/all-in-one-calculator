@@ -21,7 +21,9 @@ int main()
     do
     {
         int featureChoice;
+        std::cout << "----------------------------------------\n";
         std::cout << "Available features: \n";
+        std::cout << "----------------------------------------\n";
         std::cout << "1. Geometric figure calculator.\n";
         std::cout << "2. Solid figure calculator.\n";
         std::cout << "3. Quadratic equation solver.\n";
@@ -30,6 +32,7 @@ int main()
         std::cout << "6. Series and Sum.\n";
         std::cout << "7. Derivative.\n";
         std::cout << "8. Integaration.\n";
+        std::cout << "----------------------------------------\n";
         std::cout << "Your choice (0 to exit): ";
         std::cin >> featureChoice;
         std::cout << '\n';
@@ -62,8 +65,10 @@ int main()
                 system("clear");
                 break;
             case 7:
+                std::cout << "-------------------------------------------------------------------\n";
                 std::cout << "Unfortunately there are many limitation for this feature right now.\n";
                 std::cout << "It only take an integer input.\n\n";
+                std::cout << "-------------------------------------------------------------------\n";
                 derivation();
                 system("clear");
                 break;
@@ -75,8 +80,10 @@ int main()
                 exit = true;
                 break;
             default:
+                std::cout << "---------------\n";
                 std::cout << "Unknown choice!\n";
                 std::cout << "Aborting...!\n";
+                std::cout << "---------------\n";
                 sleep(3);
                 system("clear");
         }
@@ -148,14 +155,6 @@ void cubicEquation()
 bool userConfirmation()
 {
     std::string confirmation = "y";
-//    do {
-//        if (std::cin.fail()) {
-//            std::cin.clear();
-//            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-//        }
-//        std::cout << "Go back to main menu? (y/n) ";
-//        std::getline(std::cin, confirmation);
-//    } while (std::cin.fail());
 
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -176,7 +175,9 @@ bool userConfirmation()
     else 
     {
         std::cout << '\n';
+        std::cout << "-----------------------------------------\n";
         std::cout << "Unknown option, returning to main menu...\n";
+        std::cout << "-----------------------------------------\n";
         sleep(3);
         system("clear");
         return false;
