@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 #include <cmath>
 #include <unistd.h>
@@ -41,7 +42,7 @@ void calculateIntegral(std::string *expressionToIntegrate, double *startEndpoint
     typedef exprtk::expression<T>   expression_t;
     typedef exprtk::parser<T>       parser_t;
     double length = *endPoint - *startEndpoint;
-    double amountOfPartitions = length * 1000000;
+    double amountOfPartitions = length * 1000;
     double rectWidth = length / amountOfPartitions;
 
     T x;
@@ -68,6 +69,6 @@ void calculateIntegral(std::string *expressionToIntegrate, double *startEndpoint
             T y = expression.value() * rectWidth;
             sum += y;
         }
-        std::cout << "The integral is: " << sum << '\n';
+        std::cout << "The integral is: " << std::setprecision(2) << sum << '\n';
     }
 }
