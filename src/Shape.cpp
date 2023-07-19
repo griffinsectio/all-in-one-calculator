@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include "../headers/Shape.h"
 
+template <typename T>
+void areaOrParameter(T shape);
 bool userConfirmation();
 
 void shapeCalculator()
@@ -33,14 +35,11 @@ void shapeCalculator()
                 double length;
                 std::cout << "Give the length of the square side: ";
                 std::cin >> length;
-                std::cout << "\n\n";
-    
+                std::cout << "\n";
+                
                 Square sqre(length);
-                sqre.getLength();
-                sqre.calculateArea();
-                sqre.calculatePerimeter();
-                sqre.getArea();
-                sqre.getPerimeter();
+                areaOrParameter<Square>(sqre);
+
                 std::cout << '\n';
         
                 break;
@@ -53,15 +52,11 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the width of the rectangle: ";
                 std::cin >> width;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Rectangle rect(length, width);
-                rect.getLength();
-                rect.getWidth();
-                rect.calculateArea();
-                rect.calculatePerimeter();
-                rect.getArea();
-                rect.getPerimeter();
+                areaOrParameter<Rectangle>(rect);
+
                 std::cout << '\n';
     
                 break;
@@ -74,15 +69,11 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the height of the parallelogram: ";
                 std::cin >> height;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Parallelogram par(length, height);
-                par.getLength();
-                par.getHeight();
-                par.calculateArea();
-                par.calculatePerimeter();
-                par.getArea();
-                par.getPerimeter();
+                areaOrParameter<Parallelogram>(par);
+
                 std::cout << '\n';
     
                 break;
@@ -98,16 +89,11 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the height of the trapezoid: ";
                 std::cin >> height;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Trapezoid trap(length, width, height);
-                trap.getLength();
-                trap.getWidth();
-                trap.getHeight();
-                trap.calculateArea();
-                trap.calculatePerimeter();
-                trap.getArea();
-                trap.getPerimeter();
+                areaOrParameter<Trapezoid>(trap);
+
                 std::cout << '\n';
     
                 break;
@@ -120,15 +106,12 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the height of the triangle: ";
                 std::cin >> height;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Triangle tri(base, height);
                 tri.getBase();
-                tri.getHeight();
-                tri.calculateArea();
-                tri.calculatePerimeter();
-                tri.getArea();
-                tri.getPerimeter();
+                areaOrParameter<Triangle>(tri);
+
                 std::cout << '\n';
     
                 break;
@@ -141,15 +124,10 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the length of the second diagonal of the rhombus: ";
                 std::cin >> dig2;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Rhombus rhom(dig1, dig2);
-                rhom.getDiagonal1();
-                rhom.getDiagonal2();
-                rhom.calculateArea();
-                rhom.calculatePerimeter();
-                rhom.getArea();
-                rhom.getPerimeter();
+                areaOrParameter<Rhombus>(rhom);
                 std::cout << '\n';
     
                 break;
@@ -162,15 +140,10 @@ void shapeCalculator()
                 std::cout << '\n';
                 std::cout << "Give the length of the second diagonal of the kite: ";
                 std::cin >> dig2;
-                std::cout << "\n\n";
+                std::cout << "\n";
     
                 Kite kite(dig1, dig2);
-                kite.getDiagonal1();
-                kite.getDiagonal2();
-                kite.calculateArea();
-                kite.calculatePerimeter();
-                kite.getArea();
-                kite.getPerimeter();
+                areaOrParameter<Kite>(kite);
                 std::cout << '\n';
     
                 break;
@@ -183,3 +156,26 @@ void shapeCalculator()
     }while (userConfirmation());
 }
 
+
+template <typename T>
+void areaOrParameter(T shape)
+{
+    int choice = 0;
+    std::cout << "What do you want to calculate? \n";
+    std::cout << "1. Area.\n";
+    std::cout << "2. Parameter.\n";
+    std::cout << "Your choice (0 to exit): ";
+    std::cin >> choice;
+    std::cout << '\n';
+
+    if (choice == 1)
+    {
+        shape.calculateArea();
+        shape.getArea();
+    } else if (choice == 2)
+    {
+        shape.calculatePerimeter();
+        shape.getPerimeter();
+    }
+    return;
+}
