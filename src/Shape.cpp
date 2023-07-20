@@ -32,12 +32,8 @@ void shapeCalculator()
             }
             case 1:
             {
-                double length;
-                std::cout << "Give the length of the square side: ";
-                std::cin >> length;
-                std::cout << "\n";
-                
-                Square sqre(length);
+                Square sqre;
+
                 areaOrParameter<Square>(sqre);
 
                 std::cout << '\n';
@@ -46,15 +42,8 @@ void shapeCalculator()
             }
             case 2:
             {
-                double length, width;
-                std::cout << "Give the length of the rectangle: ";
-                std::cin >> length;
-                std::cout << '\n';
-                std::cout << "Give the width of the rectangle: ";
-                std::cin >> width;
-                std::cout << "\n";
-    
-                Rectangle rect(length, width);
+                Rectangle rect;
+
                 areaOrParameter<Rectangle>(rect);
 
                 std::cout << '\n';
@@ -63,15 +52,7 @@ void shapeCalculator()
             }
             case 3:
             {
-                double length, height;
-                std::cout << "Give the length of the parallelogram: ";
-                std::cin >> length;
-                std::cout << '\n';
-                std::cout << "Give the height of the parallelogram: ";
-                std::cin >> height;
-                std::cout << "\n";
-    
-                Parallelogram par(length, height);
+                Parallelogram par;
                 areaOrParameter<Parallelogram>(par);
 
                 std::cout << '\n';
@@ -80,18 +61,7 @@ void shapeCalculator()
             }
             case 4:
             {
-                double length, width, height;
-                std::cout << "Give the length of base of the trapezoid: ";
-                std::cin >> length;
-                std::cout << '\n';
-                std::cout << "Give the length of top of the trapezoid: ";
-                std::cin >> width;
-                std::cout << '\n';
-                std::cout << "Give the height of the trapezoid: ";
-                std::cin >> height;
-                std::cout << "\n";
-    
-                Trapezoid trap(length, width, height);
+                Trapezoid trap;
                 areaOrParameter<Trapezoid>(trap);
 
                 std::cout << '\n';
@@ -100,16 +70,7 @@ void shapeCalculator()
             }
             case 5:
             {
-                double base, height;
-                std::cout << "Give the length of base of the triangle: ";
-                std::cin >> base;
-                std::cout << '\n';
-                std::cout << "Give the height of the triangle: ";
-                std::cin >> height;
-                std::cout << "\n";
-    
-                Triangle tri(base, height);
-                tri.getBase();
+                Triangle tri;
                 areaOrParameter<Triangle>(tri);
 
                 std::cout << '\n';
@@ -118,31 +79,16 @@ void shapeCalculator()
             }
             case 6:
             {
-                double dig1, dig2;
-                std::cout << "Give the length of the first diagonal of the rhombus: ";
-                std::cin >> dig1;
-                std::cout << '\n';
-                std::cout << "Give the length of the second diagonal of the rhombus: ";
-                std::cin >> dig2;
-                std::cout << "\n";
-    
-                Rhombus rhom(dig1, dig2);
+                Rhombus rhom;
                 areaOrParameter<Rhombus>(rhom);
                 std::cout << '\n';
     
                 break;
             }
+    
             case 7:
             {
-                double dig1, dig2;
-                std::cout << "Give the length of the first diagonal of the kite: ";
-                std::cin >> dig1;
-                std::cout << '\n';
-                std::cout << "Give the length of the second diagonal of the kite: ";
-                std::cin >> dig2;
-                std::cout << "\n";
-    
-                Kite kite(dig1, dig2);
+                Kite kite;
                 areaOrParameter<Kite>(kite);
                 std::cout << '\n';
     
