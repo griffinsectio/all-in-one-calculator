@@ -26,24 +26,32 @@ class Square : public Shape
     public:
         void calculateArea()
         {
-            std::cout << "Give the length of the square side: ";
-            std::cin >> sideLength;
-            std::cout << "\n";
+            getLength();
 
             this->area = sideLength*sideLength;
         }
         void calculatePerimeter()
         {
-            std::cout << "Give the length of the square side: ";
-            std::cin >> sideLength;
-            std::cout << "\n";
+            getLength();
 
             this->perimeter = 4*sideLength;
         }
         void getLength()
         {
-            std::cout << "The " << this->name << "'s length is: " << this->sideLength << '\n';
+            std::cout << "...............\n";
+            std::cout << ".             .\n";
+            std::cout << ".             .\n";
+            std::cout << ".             .\n";
+            std::cout << ".             .\n";
+            std::cout << ".             .\n";
+            std::cout << ".             .\n";
+            std::cout << "...............\n";
+            std::cout << "     length  \n\n";
+
+            std::cout << "Give the length of the square's side: \n";
+            std::cin >> this->sideLength;
         }
+        
     Square()
     {
 
@@ -70,6 +78,13 @@ class Rectangle : public Square
         }
         void getLengthAndWidthUser()
         {
+            std::cout << "...............\n";
+            std::cout << ".             .\n";
+            std::cout << ".             . width\n";
+            std::cout << ".             .\n";
+            std::cout << "...............\n";
+            std::cout << "      length    \n\n";
+
             std::cout << "Give the length of the rectangle: ";
             std::cin >> this->sideLength;
             std::cout << '\n';
@@ -94,6 +109,15 @@ class Parallelogram : public Square
     public:
         void calculateArea()
         {
+            std::cout << "       length      \n";
+            std::cout << "    ...............\n";
+            std::cout << "   .|            .\n ";
+            std::cout << "  . |height     .\n  ";
+            std::cout << " .  |          .\n   ";
+            std::cout << "...............\n    ";
+            std::cout << "      length  \n     ";
+            std::cout << '\n';
+
             std::cout << "Give the length of the parallelogram: ";
             std::cin >> this->sideLength;
             std::cout << '\n';
@@ -144,6 +168,14 @@ class Trapezoid : public Rectangle
     public:
         void calculateArea()
         {
+            std::cout << "        top         " << '\n';
+            std::cout << "     ----------     " << '\n';
+            std::cout << "    /  |       \\   " << '\n';
+            std::cout << "   /   | height \\  " << '\n';
+            std::cout << "  /    |         \\ " << '\n';
+            std::cout << " ------------------ " << '\n';
+            std::cout << "        base        " << '\n';
+
             std::cout << "Give the length of base of the trapezoid: ";
             std::cin >> this->base;
             std::cout << '\n';
@@ -154,17 +186,27 @@ class Trapezoid : public Rectangle
             std::cin >> this->height;
             std::cout << "\n";
 
-            this->area = ((sideLength+sideWidth)/2)*height;
+            this->area = ((base+top)/2)*height;
         }
         void calculatePerimeter()
         {
             double a = 1;
             double b = 1;
+            std::cout << "        top         " << '\n';
             std::cout << "     ----------     " << '\n';
             std::cout << "    /          \\   " << '\n';
             std::cout << " a /            \\ b" << '\n';
             std::cout << "  /              \\ " << '\n';
-            std::cout << " ------------------" << '\n';
+            std::cout << " ------------------ " << '\n';
+            std::cout << "        base        " << '\n';
+            std::cout << '\n';
+
+            std::cout << "Give the length of the base: ";
+            std::cin >> this->base;
+            std::cout << '\n';
+
+            std::cout << "Give the length of the top: ";
+            std::cin >> this->top;
             std::cout << '\n';
 
             std::cout << "Give the length of the side a: ";
@@ -175,7 +217,7 @@ class Trapezoid : public Rectangle
             std::cin >> b;
             std::cout << '\n';
 
-            this->perimeter = sideLength + sideWidth + a + b;
+            this->perimeter = this->base + this->top + a + b;
         }
         void getHeight()
         {
@@ -196,6 +238,13 @@ class Triangle : public Shape
     public:
         void calculateArea()
         {
+            std::cout << "        .        " << '\n';
+            std::cout << "      . | .      " << '\n';
+            std::cout << "    .   |   .    " << '\n';
+            std::cout << "  .  hei|ght  .  " << '\n';
+            std::cout << ". . . . . . . . ." << '\n';
+            std::cout << "       base      " << "\n\n";
+
             std::cout << "Give the length of base of the triangle: ";
             std::cin >> this->base;
             std::cout << '\n';
@@ -213,6 +262,13 @@ class Triangle : public Shape
 
             std::cout << "All triangle sides is required in order to calculate it perimeter.\n"
                 << "And each side is labeled as a, b, and c.\n\n";
+
+            std::cout << "        .        " << '\n';
+            std::cout << "      .   .      " << '\n';
+            std::cout << "  a .       . b  " << '\n';
+            std::cout << "  .           .  " << '\n';
+            std::cout << ". . . . . . . . ." << '\n';
+            std::cout << "        b        " << "\n\n";
 
             std::cout << "Give the length of side a: ";
             std::cin >> a;
@@ -251,6 +307,8 @@ class Rhombus : public Shape
     public:
         void calculateArea()
         {
+            getDiagonals();
+
             this->area = (diagonal1*diagonal2)/2;
         }
         void calculatePerimeter()
@@ -258,24 +316,49 @@ class Rhombus : public Shape
             double hypotenuse = std::sqrt(std::pow(std::pow(diagonal1, 2), std::pow(diagonal2, 2)));
             this->perimeter = 4 * hypotenuse;
         }
-        void getDiagonal1()
+        void getDiagonals()
         {
-            std::cout << this->name << "'s first diagonal has the length of " << this->diagonal1 << '\n';
-        }
-        void getDiagonal2()
-        {
-            std::cout << this->name << "'s second diagonal has the length of " << this->diagonal2 << '\n';
+            if (this->name == "Rhombus")
+            {
+                std::cout << "                  _  \n";
+                std::cout << "        .          | \n";
+                std::cout << "      . | .        | \n";
+                std::cout << "    .   |   .      | \n";
+                std::cout << "  .     |     .    | \n";
+                std::cout << ".---------------.  | diagonal 2\n";
+                std::cout << "  .     |     .    | \n";
+                std::cout << "    .   |   .      | \n";
+                std::cout << "      . | .        | \n";
+                std::cout << "        .         _| \n";
+                std::cout << "|________________|   \n";
+                std::cout << "    diagonal 1     \n\n";
+            } else if (this->name == "Kite")
+            {
+                std::cout << "                _  \n";
+                std::cout << "        .        |" << '\n';
+                std::cout << "      . | .      |" << '\n' ;
+                std::cout << "    .   |   .    |" << '\n';
+                std::cout << "  .-----|-----.  |" << '\n';
+                std::cout << "   .    |    .   | diagonal 2" << '\n';
+                std::cout << "    .   |   .    |" << '\n' ;
+                std::cout << "     .  |  .     |" << '\n';
+                std::cout << "      . | .      |" << '\n';
+                std::cout << "       .|.       |" << '\n';
+                std::cout << "        .       _|" << "\n";
+                std::cout << " |____________|   \n";
+                std::cout << "   diagonal 1   \n\n";
+            }
+
+            std::cout << "Give the length of the first diagonal of the " << this->name << ": ";
+            std::cin >> this->diagonal1;
+            std::cout << '\n';
+            std::cout << "Give the length of the second diagonal of the " << this->name << ": ";
+            std::cin >> this->diagonal2;
+            std::cout << "\n";
         }
 
     Rhombus()
     {
-        std::cout << "Give the length of the first diagonal of the " << this->name << ": ";
-        std::cin >> this->diagonal1;
-        std::cout << '\n';
-        std::cout << "Give the length of the second diagonal of the " << this->name << ": ";
-        std::cin >> this->diagonal2;
-        std::cout << "\n";
-
         this->name = "Rhombus";
     }
 };
@@ -296,7 +379,7 @@ class Kite : public Rhombus
             std::cout << "  b  .  |  . b  " << '\n';
             std::cout << "      . | .     " << '\n';
             std::cout << "       .|.      " << '\n';
-            std::cout << "        .       " << '\n';
+            std::cout << "        .       " << "\n\n";
 
             std::cout << "Give the length of side a: ";
             std::cin >> a;
