@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <cmath>
 
+void powerRule();
+void trigonometricExpression();
 double toDoubleCoefficient(char coefficientArray[], int coefficientArraySize);
 double toDoublePower(char powerArray[], int powerArraySize);
 bool userConfirmation();
@@ -9,6 +11,43 @@ bool userConfirmation();
 void derivation()
 {
     do {
+        int userChoice = 0;
+
+        std::cout << "What do kind of expression you want to differentiate? \n";
+        std::cout << "1. Regular expression \n";
+        std::cout << "2. Trigonometric expression \n";
+        std::cout << "Your choice (0 to exit): ";
+        std::cin >> userChoice;
+        std::cout << '\n';
+
+        switch (userChoice) {
+            case 0:
+            {
+                system("clear");
+                return;
+            }
+            case 1:
+            {
+                std::cout << "Be aware that this feature only able to differentiate single term expression\n";
+                std::cout << "and only able to take an integer power.\n\n";
+
+                powerRule();
+
+                break;
+            }
+            case 2:
+            {
+                trigonometricExpression();
+
+                break;
+            }
+        }
+
+    }while (userConfirmation());
+}
+
+void powerRule()
+{
         std::string expression = "";
         int indexOfVariable = 0;
         int power = 0;
@@ -58,7 +97,7 @@ void derivation()
            }
        }
 
-       // Get the coefficient and power that have been translated to type of double
+        // Get the coefficient and power that have been translated to type of double
         double coefficient = toDoubleCoefficient(coefficientArray, coefficientArraySize);
         power = toDoubleCoefficient(powerArray, powerArraySize);
 
@@ -82,7 +121,55 @@ void derivation()
             std::cout << "The derivative is: " << finalCoefficient << "x^" << finalPower;
         }
         std::cout << "\n\n"; 
-    }while (userConfirmation());
+}
+
+void trigonometricExpression()
+{
+    int userChoice = 0;
+    std::cout << "What trigonometric function you want to differentiate? \n";
+    std::cout << "1. sin(x) \n";
+    std::cout << "2. cos(x) \n";
+    std::cout << "3. tan(x) \n";
+    std::cout << "4. csc(x) \n";
+    std::cout << "5. sec(x) \n";
+    std::cout << "6. cot(x) \n";
+    std::cout << "Your choice (0 to exit): ";
+
+    std::cin >> userChoice;
+    std::cout << '\n';
+
+    switch (userChoice) {
+        case 1:
+        {
+            std::cout << "d/dx sin(x) = cos(x)\n\n";
+            break;
+        }
+        case 2:
+        {
+            std::cout << "d/dx cos(x) = -sin(x)\n\n";
+            break;
+        }
+        case 3:
+        {
+            std::cout << "d/dx tan(x) = sec^2(x)\n\n";
+            break;
+        }
+        case 4:
+        {
+            std::cout << "d/dx csc(x) = -csc(x)cot(x)\n\n";
+            break;
+        }
+        case 5:
+        {
+            std::cout << "d/dx sec(x) = sec(x)tan(x)\n\n";
+            break;
+        }
+        case 6:
+        {
+            std::cout << "d/dx cot(x) = -csc^2(x)\n\n";
+            break;
+        }
+    }
 }
 
 double toDoubleCoefficient(char coefficientArray[], int coefficientArraySize)
