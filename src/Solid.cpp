@@ -2,6 +2,8 @@
 #include <cmath>
 #include "../headers/Solid.h"
 
+template <typename T>
+void surfaceOrVolume(T solid);
 bool userConfirmation();
 
 void solidCalculator()
@@ -28,126 +30,54 @@ void solidCalculator()
             }
             case 1:
             {
-                double length;
-                std::cout << "Give the length of the cube side: ";
-                std::cin >> length;
-                std::cout << "\n\n";
-    
-                Cube cube(length);
-                cube.getLength();
-                cube.calculateSurfaceArea();
-                cube.calculateVolume();
-                cube.getSurfaceArea();
-                cube.getVolume();
+                Cube cube;
+                surfaceOrVolume(cube);
+
                 std::cout << '\n';
  
                 break;
             }
             case 2:
             {
-                double length, width, height;
-                std::cout << "Give the length of the cuboid: ";
-                std::cin >> length;
-                std::cout << '\n';
-                std::cout << "Give the width of the cuboid: ";
-                std::cin >> width;
-                std::cout << '\n';
-                std::cout << "Give the height of the cuboid: ";
-                std::cin >> height;
-                std::cout << "\n\n";
-    
-                Cuboid cuboid(length, width, height);
-                cuboid.getLength();
-                cuboid.getWidth();
-                cuboid.getHeight();
-                cuboid.calculateSurfaceArea();
-                cuboid.calculateVolume();
-                cuboid.getSurfaceArea();
-                cuboid.getVolume();
+                Cuboid cuboid;
+                surfaceOrVolume(cuboid);
+
                 std::cout << '\n';
     
                 break;
             }
             case 3:
             {
-                double length, width, height;
-                std::cout << "Give the length of the pyramid: ";
-                std::cin >> length;
-                std::cout << '\n';
-                std::cout << "Give the width of the pyramid: ";
-                std::cin >> width;
-                std::cout << '\n';
-                std::cout << "Give the height of the pyramid: ";
-                std::cin >> height;
-                std::cout << "\n\n";
-    
-                Pyramid pyramid(length, width, height);
-                pyramid.getLength();
-                pyramid.getWidth();
-                pyramid.getHeight();
-                pyramid.calculateSurfaceArea();
-                pyramid.calculateVolume();
-                pyramid.getSurfaceArea();
-                pyramid.getVolume();
+                Pyramid pyramid;
+                surfaceOrVolume(pyramid);
+
                 std::cout << '\n';
     
                 break;
             }
             case 4:
             {
-                double radius;
-                std::cout << "Give the radius of the sphere: ";
-                std::cin >> radius;
-                std::cout << "\n\n";
-    
-                Sphere sphere(radius);
-                sphere.getRadius();
-                sphere.calculateSurfaceArea();
-                sphere.calculateVolume();
-                sphere.getSurfaceArea();
-                sphere.getVolume();
+                Sphere sphere;
+                surfaceOrVolume(sphere);
+
                 std::cout << '\n';
     
                 break;
             }
             case 5:
             {
-                double radius, height;
-                std::cout << "Give the radius of the cone: ";
-                std::cin >> radius;
-                std::cout << '\n';
-                std::cout << "Give the height of the cone: ";
-                std::cin >> height;
-                std::cout << "\n\n";
-    
-                Cone cone(radius, height);
-                cone.getRadius();
-                cone.getHeight();
-                cone.calculateSurfaceArea();
-                cone.calculateVolume();
-                cone.getSurfaceArea();
-                cone.getVolume();
+                Cone cone;
+                surfaceOrVolume(cone);
+
                 std::cout << '\n';
     
                 break;
             }
             case 6:
             {
-                double radius, height;
-                std::cout << "Give the radius of the cylinder: ";
-                std::cin >> radius;
-                std::cout << '\n';
-                std::cout << "Give the height of the cylinder: ";
-                std::cin >> height;
-                std::cout << "\n\n";
-    
-                Cylinder cylinder(radius, height);
-                cylinder.getRadius();
-                cylinder.getHeight();
-                cylinder.calculateSurfaceArea();
-                cylinder.calculateVolume();
-                cylinder.getSurfaceArea();
-                cylinder.getVolume();
+                Cylinder cylinder;
+                surfaceOrVolume(cylinder);
+
                 std::cout << '\n';
     
                 break;
@@ -158,4 +88,27 @@ void solidCalculator()
                 break;
         }
     }while (userConfirmation());
+}
+
+template <typename T>
+void surfaceOrVolume(T solid)
+{
+    int choice = 0;
+    std::cout << "What do you want to calculate? \n";
+    std::cout << "1. Surface area.\n";
+    std::cout << "2. Volume.\n";
+    std::cout << "Your choice (0 to exit): ";
+    std::cin >> choice;
+    std::cout << '\n';
+
+    if (choice == 1)
+    {
+        solid.calculateSurfaceArea();
+        solid.getSurfaceArea();
+    } else if (choice == 2)
+    {
+        solid.calculateVolume();
+        solid.getVolume();
+    }
+    return;
 }

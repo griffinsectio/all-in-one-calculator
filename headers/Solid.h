@@ -35,20 +35,25 @@ class Cube : public Solid
     public:
         void calculateSurfaceArea()
         {
+            getLength();
+
             setSurfaceArea(6*length*length);
         }
         void calculateVolume()
         {
+            getLength();
+
             setVolume(length*length*length);
         }
         void getLength()
         {
-            std::cout << "The length of the " << this->name << " sides is: " << this->length << '\n';
+            std::cout << "Give the length of the cube side: ";
+            std::cin >> length;
+            std::cout << '\n';
         }
-        Cube(double length)
+        Cube()
         {
             this->name = "cube";
-            this->length = length;
         }
 };
 
@@ -57,7 +62,6 @@ class Cuboid : public Cube
     protected:
         double width;
         double height;
-
     public:
         void calculateSurfaceArea()
         {
@@ -67,19 +71,21 @@ class Cuboid : public Cube
         {
             setVolume(length*width*height);
         }
-        void getWidth()
+        void getAllLength()
         {
-            std::cout << "The width of the " << this->name << " sides is: " << this->width << '\n';
+           std::cout << "Give the length of the " << this->name  << ": ";
+           std::cin >> length;
+           std::cout << '\n';
+           std::cout << "Give the width of the " << this->name << ": ";
+           std::cin >> width;
+           std::cout << '\n';
+           std::cout << "Give the height of the " << this->name << ": ";
+           std::cin >> height;
+           std::cout << '\n';
         }
-        void getHeight()
-        {
-            std::cout << "The height of the " << this->name << " sides is: " << this->height << '\n';
-        }
-        Cuboid(double length, double width, double height) : Cube(length)
+        Cuboid()
         {
             this->name = "cuboid";
-            this->width = width;
-            this->height = height;
         }
 };
 
@@ -88,15 +94,19 @@ class Pyramid : public Cuboid
     public:
         void calculateSurfaceArea()
         {
+            Cuboid::getAllLength();
+
             setSurfaceArea((length*width) +
                     (length*std::sqrt(pow(width/2, 2) + height*height)) +
                     (width*std::sqrt(pow(length/2, 2) + height*height)));
         }
         void calculateVolume()
         {
+            Cuboid::getAllLength();
+
             setVolume((length*width*height)/3);
         }
-        Pyramid(double length, double width, double height) : Cuboid(length, width, height)
+        Pyramid()
         {
             this->name = "pyramid";
         }
@@ -111,46 +121,26 @@ class Sphere : public Solid
     public:
         void calculateSurfaceArea()
         {
+            getRadius();
+
             setSurfaceArea(4*pi*std::pow(radius, 2));
         }
         void calculateVolume()
         {
+            getRadius();
+
             setVolume((4*pi*std::pow(radius, 3))/3);
         }
         void getRadius()
         {
-            std::cout << "The radius of the " << this->name << " is: " << this->radius << '\n';
+            std::cout << "Give the radius of the sphere: ";
+            std::cin >> this->radius;
+            std::cout << '\n';
         }
-        Sphere(double radius)
+        Sphere()
         {
             this->name = "sphere";
-            this->radius = radius;
         }
-};
-
-class Cone : public Sphere
-{
-    protected:
-        double height;
-
-    public:
-        void calculateSurfaceArea()
-        {
-            setSurfaceArea(pi*radius*(radius+std::sqrt(std::pow(height, 2)+std::pow(radius, 2))));
-        }
-        void calculateVolume()
-        {
-            setVolume((pi*std::pow(radius, 2)*height)/3);
-        }
-        void getHeight()
-        {
-            std::cout << "The height of the " << this->name << " is: " << this->height << '\n';
-        }
-	    Cone(double radius, double height) : Sphere(radius)
-	    {
-            this->name = "cone";
-	        this->height = height;
-	    }
 };
 
 class Cylinder : public Sphere
@@ -161,19 +151,52 @@ class Cylinder : public Sphere
     public:
         void calculateSurfaceArea()
         {
+            getAllLength();
+            
             setSurfaceArea(2*pi*radius*(height+radius));
         }
         void calculateVolume()
         {
+            getAllLength();
+
             setVolume(pi*std::pow(radius, 2)*height);
         }
-        void getHeight()
+        void getAllLength()
         {
-            std::cout << "The height of the " << this->name << " is: " << this->height << '\n';
+            std::cout << "Give the radius of the " << this->name << ": ";
+            std::cin >> this->radius;
+            std::cout << '\n';
+            std::cout << "Give the height of the " << this->name << ": ";
+            std::cin >> this->height;
+            std::cout << '\n';
         }
-	   Cylinder(double radius, double height) : Sphere(radius)
+	   Cylinder() : Sphere()
 	   {
            this->name = "cylinder";
-	       this->height = height;
 	   }
 };
+
+class Cone : public Cylinder
+{
+    protected:
+        double height;
+
+    public:
+        void calculateSurfaceArea()
+        {
+            getAllLength();
+
+            setSurfaceArea(pi*radius*(radius+std::sqrt(std::pow(height, 2)+std::pow(radius, 2))));
+        }
+        void calculateVolume()
+        {
+            getAllLength();
+
+            setVolume((pi*std::pow(radius, 2)*height)/3);
+        }
+	    Cone(): Cylinder()
+	    {
+            this->name = "cone";
+	    }
+};
+
